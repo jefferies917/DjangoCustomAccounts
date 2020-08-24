@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Login</h2>
+<form method="POST">
+  {% csrf_token %}
+  {% for field in login_form %}
+  <p>
+    {{field.label_tag}}
+    {{field}}
+    {% if field.help_text %}
+    <small>{{field.help_text}}</small>
+    {% endif %}
+
+  </p>
+  {% endfor %}
+
+  <p>
+    {% for field, error in login_form.errors.items %}
+    {% if field != '__all__' %}{{ login_form.non_field_errors }}{% endif %}
+    {{ error | striptags }}
+    {% endfor %}
+  </p>
+
+  <button type="submit">Login</button>
+</form>
+
+<div>
+  <a href="{% url 'password_reset' %}">Reset Password</a>
+</div>
+{% endblock %}
