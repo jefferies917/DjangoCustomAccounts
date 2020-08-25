@@ -76,7 +76,7 @@ TEMPLATES = [
 ]
 
 # Custom user model
-AUTH_USER_MODEL = 'account.Account'
+# AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
